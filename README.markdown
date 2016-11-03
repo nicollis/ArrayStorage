@@ -76,10 +76,18 @@ new empty list
 *none*
 ##### Returns
 returns array of all items, or null if list is empty
+### Get library version
+##### Syntax
+``` ArrayStorage_instance.version() ```
+##### Paramaters 
+*none*
+##### Returns
+version number as string
 
 ## Changelog
 
 * 2016-11-03 -- v0.1.0 -- Initial public release
+* 2016-11-03 -- v0.1.1 -- Added version function
 
 ## Author
 

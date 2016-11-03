@@ -25,4 +25,6 @@ ArrayStorage = (cookie_name, options = null) ->
     "items": ->
       if items.length == 0 then return null
       items
+    "version": ->
+      'v0.1.1'
   }
