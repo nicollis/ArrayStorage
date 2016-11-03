@@ -26,7 +26,7 @@ as.items();
 // clear all items
 as.clear();
 ```
-
+## Documentation
 ### Create a new instance
 ##### Syntax
 ``` as = ArrayStorage(cookie_name [, {options}]) ```
