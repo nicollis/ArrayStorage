@@ -1,0 +1,183 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title ArrayStorage
+    / JS-Cookie required
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js", :type => 'text/javascript'}
+    / ArrayStorage Code
+    %script{src: 'arraystorage.js', type: 'text/javascript'}
+    / Demo page JS
+    :javascript
+      as = new ArrayStorage('my_cookie');
+      as.add('one');
+      as.add('two');
+      console.log('add one and two', as.items())
+      as.add('three');
+      console.log('add three', as.items())
+      as.remove('two');
+      console.log('remove two', as.items())
+      as.clear()
+      console.log('clear all', as.items())
+  %body#preview
+    %h1
+      %a#ArrayStorage_0>
+      ArrayStorage
+    %p
+      A simple way of storing arrays as cookies. Built using
+      %a{:href => "https://github.com/js-cookie/js-cookie"} JS-Cookie
+      it has coverage for all browsers.
+    %h2
+      %a#Usage_5>
+      Usage
+    %ol
+      %li Include JS-Cookie in your project
+      %li Start using!
+    %h2
+      %a#Example_10>
+      Example
+    %pre
+      %code
+        :preserve
+          // create new cookies array that will expire in 1 week
+          as = new ArrayStorage('my_cookie', { expires: 7, path: '' });
+          // add three items to array
+          as.add('one');
+          as.add('two');
+          as.add('three');
+          // remove second item by object
+          as.remove('two');
+          // remove first object by index
+          as.removeAt(0)
+          // get array of items stored
+          as.items();
+          // clear all items
+          as.clear();
+    %h3
+      %a#Create_a_new_instance_29>
+      Create a new instance
+    %h5
+      %a#Syntax_30>
+      Syntax
+    %p
+      %code as = ArrayStorage(cookie_name [, {options}])
+    %h5
+      %a#Paramaters_32>
+      Paramaters
+    %p
+      string:
+      %code cookie_name
+      %em required
+      – string that will be used to identify the proper cookie as too pull and add values to the intended array
+    %p
+      json:
+      %code {options}
+      %em optional
+      – json object used to provide explicit experation time and/or path
+      %a{:href => "https://github.com/js-cookie/js-cookie#cookie-attributes"} see JS-Cookie for more info
+    %h5
+      %a#Returns_38>
+      Returns
+    %p a new ArrayStorage Object for the cookie name provided
+    %h3
+      %a#Add_item_to_array_40>
+      Add item to array
+    %h5
+      %a#Syntax_41>
+      Syntax
+    %p
+      %code ArrayStorage_instance.add(new_value)
+    %h5
+      %a#Paramaters_43>
+      Paramaters
+    %p
+      object:
+      %code new_value
+      %em required
+      – an object that will be stored as in the cookie
+    %h5
+      %a#Returns_46>
+      Returns
+    %p current array of saved items
+    %h3
+      %a#Remove_item_from_array_48>
+      Remove item from array
+    %h5
+      %a#Syntax_49>
+      Syntax
+    %p
+      %code ArrayStorage_instance.remove(value)
+    %h5
+      %a#Paramaters_51>
+      Paramaters
+    %p
+      object:
+      %code value
+      %em required
+      – an already stored object to be removed from the array
+    %h5
+      %a#Returns_54>
+      Returns
+    %p true if successful – false if item is not found
+    %h3
+      %a#Remove_item_from_array_by_index_56>
+      Remove item from array by index
+    %h5
+      %a#Syntax_57>
+      Syntax
+    %p
+      %code ArrayStorage_instance.removeAt(index)
+    %h5
+      %a#Paramaters_59>
+      Paramaters
+    %p
+      int:
+      %code index
+      %em required
+      – number of object index you would like removed
+    %h5
+      %a#Returns_62>
+      Returns
+    %p true if successful – false if item is not found
+    %h3
+      %a#Clear_all_items_64>
+      Clear all items
+    %h5
+      %a#Syntax_65>
+      Syntax
+    %p
+      %code ArrayStorage_instance.clear()
+    %h5
+      %a#Paramaters_67>
+      Paramaters
+    %p
+      %em none
+    %h5
+      %a#Returns_69>
+      Returns
+    %p new empty list
+    %h3
+      %a#Get_items_71>
+      Get items
+    %h5
+      %a#Syntax_72>
+      Syntax
+    %p
+      %code ArrayStorage_instance.items()
+    %h5
+      %a#Paramaters_74>
+      Paramaters
+    %p
+      %em none
+    %h5
+      %a#Returns_76>
+      Returns
+    %p returns array of all items, or null if list is empty
+    %h2
+      %a#Author_83>
+      Author
+    %p
+      Copyright © 2016
+      = succeed "." do
+        %a{:href => "http://ollis.me"} Nicholas Ollis
+  

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <title>ArrayStorage</title>
+    <!-- JS-Cookie required -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js' type='text/javascript'></script>
+    <!-- ArrayStorage Code -->
+    <script src='arraystorage.js' type='text/javascript'></script>
+    <!-- Demo page JS -->
+    <script>
+      as = new ArrayStorage('my_cookie');
+      as.add('one');
+      as.add('two');
+      console.log('add one and two', as.items())
+      as.add('three');
+      console.log('add three', as.items())
+      as.remove('two');
+      console.log('remove two', as.items())
+      as.clear()
+      console.log('clear all', as.items())
+    </script>
+  </head>
+  <body id='preview'>
+    <h1><a id='ArrayStorage_0'></a>ArrayStorage
+    </h1>
+    <p>
+      A simple way of storing arrays as cookies. Built using
+      <a href='https://github.com/js-cookie/js-cookie'>JS-Cookie</a>
+      it has coverage for all browsers.
+    </p>
+    <h2><a id='Usage_5'></a>Usage
+    </h2>
+    <ol>
+      <li>Include JS-Cookie in your project</li>
+      <li>Start using!</li>
+    </ol>
+    <h2><a id='Example_10'></a>Example
+    </h2>
+    <pre><code>// create new cookies array that will expire in 1 week&#x000A;as = new ArrayStorage('my_cookie', { expires: 7, path: '' });&#x000A;// add three items to array&#x000A;as.add('one');&#x000A;as.add('two');&#x000A;as.add('three');&#x000A;// remove second item by object&#x000A;as.remove('two');&#x000A;// remove first object by index&#x000A;as.removeAt(0)&#x000A;// get array of items stored&#x000A;as.items();&#x000A;// clear all items&#x000A;as.clear();</code></pre>
+    <h3><a id='Create_a_new_instance_29'></a>Create a new instance
+    </h3>
+    <h5><a id='Syntax_30'></a>Syntax
+    </h5>
+    <p>
+      <code>as = ArrayStorage(cookie_name [, {options}])</code>
+    </p>
+    <h5><a id='Paramaters_32'></a>Paramaters
+    </h5>
+    <p>
+      string:
+      <code>cookie_name</code>
+      <em>required</em>
+      – string that will be used to identify the proper cookie as too pull and add values to the intended array
+    </p>
+    <p>
+      json:
+      <code>{options}</code>
+      <em>optional</em>
+      – json object used to provide explicit experation time and/or path
+      <a href='https://github.com/js-cookie/js-cookie#cookie-attributes'>see JS-Cookie for more info</a>
+    </p>
+    <h5><a id='Returns_38'></a>Returns
+    </h5>
+    <p>a new ArrayStorage Object for the cookie name provided</p>
+    <h3><a id='Add_item_to_array_40'></a>Add item to array
+    </h3>
+    <h5><a id='Syntax_41'></a>Syntax
+    </h5>
+    <p>
+      <code>ArrayStorage_instance.add(new_value)</code>
+    </p>
+    <h5><a id='Paramaters_43'></a>Paramaters
+    </h5>
+    <p>
+      object:
+      <code>new_value</code>
+      <em>required</em>
+      – an object that will be stored as in the cookie
+    </p>
+    <h5><a id='Returns_46'></a>Returns
+    </h5>
+    <p>current array of saved items</p>
+    <h3><a id='Remove_item_from_array_48'></a>Remove item from array
+    </h3>
+    <h5><a id='Syntax_49'></a>Syntax
+    </h5>
+    <p>
+      <code>ArrayStorage_instance.remove(value)</code>
+    </p>
+    <h5><a id='Paramaters_51'></a>Paramaters
+    </h5>
+    <p>
+      object:
+      <code>value</code>
+      <em>required</em>
+      – an already stored object to be removed from the array
+    </p>
+    <h5><a id='Returns_54'></a>Returns
+    </h5>
+    <p>true if successful – false if item is not found</p>
+    <h3><a id='Remove_item_from_array_by_index_56'></a>Remove item from array by index
+    </h3>
+    <h5><a id='Syntax_57'></a>Syntax
+    </h5>
+    <p>
+      <code>ArrayStorage_instance.removeAt(index)</code>
+    </p>
+    <h5><a id='Paramaters_59'></a>Paramaters
+    </h5>
+    <p>
+      int:
+      <code>index</code>
+      <em>required</em>
+      – number of object index you would like removed
+    </p>
+    <h5><a id='Returns_62'></a>Returns
+    </h5>
+    <p>true if successful – false if item is not found</p>
+    <h3><a id='Clear_all_items_64'></a>Clear all items
+    </h3>
+    <h5><a id='Syntax_65'></a>Syntax
+    </h5>
+    <p>
+      <code>ArrayStorage_instance.clear()</code>
+    </p>
+    <h5><a id='Paramaters_67'></a>Paramaters
+    </h5>
+    <p>
+      <em>none</em>
+    </p>
+    <h5><a id='Returns_69'></a>Returns
+    </h5>
+    <p>new empty list</p>
+    <h3><a id='Get_items_71'></a>Get items
+    </h3>
+    <h5><a id='Syntax_72'></a>Syntax
+    </h5>
+    <p>
+      <code>ArrayStorage_instance.items()</code>
+    </p>
+    <h5><a id='Paramaters_74'></a>Paramaters
+    </h5>
+    <p>
+      <em>none</em>
+    </p>
+    <h5><a id='Returns_76'></a>Returns
+    </h5>
+    <p>returns array of all items, or null if list is empty</p>
+    <h2><a id='Author_83'></a>Author
+    </h2>
+    <p>
+      Copyright © 2016
+      <a href='http://ollis.me'>Nicholas Ollis</a>.
+    </p>
+  </body>
+</html>
